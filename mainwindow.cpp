@@ -4,7 +4,7 @@
 #include <QMessageBox>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
-#include <QImageReader>
+#include <QDateTime>
 
 using namespace std;
 using namespace cv;
@@ -57,7 +57,7 @@ void FaceExtractionWorker::process()
         {
             if (stopFlag)
             {
-                emit logMessage("Extraction stopped.");
+                emit logMessage("Extraction stopped at: " + QDateTime::currentDateTime().toString());
                 emit extractionFinished(faceCount);
                 return;
             }
@@ -74,11 +74,11 @@ void FaceExtractionWorker::process()
 
                 float progress = (static_cast<float>(frameCount) / totalFrames) * 100;
                 emit progressUpdated(progress);
-                emit logMessage("Processed " + QString::number(frameCount) + "/" + QString::number(totalFrames) + " frames. Progress: " + QString::number(progress) + "%.");
             }
             frameCount++;
         }
         emit logMessage("Processing complete. Found " + QString::number(faceCount) + " face(s).");
+        emit logMessage("Extraction finished at: " + QDateTime::currentDateTime().toString());
     }
     emit extractionFinished(faceCount);
 }
@@ -161,6 +161,8 @@ void MainWindow::on_extractFacesButton_clicked()
     ui->stopExtractionButton->setEnabled(true);
     ui->progressBar->setValue(0);
 
+    handleLogMessage("Extraction started at: " + QDateTime::currentDateTime().toString());
+
     stopFlag = false;
 
     FaceExtractionWorker *worker = new FaceExtractionWorker(inputPath, outputDir, fps, stopFlag);
@@ -190,17 +192,18 @@ void MainWindow::on_fpsComboBox_currentIndexChanged(int index)
 void MainWindow::handleProgressUpdated(float progress)
 {
     ui->progressBar->setValue(static_cast<int>(progress));
-    handleLogMessage("Progress: " + QString::number(progress) + "%");
 }
 
 void MainWindow::handleExtractionFinished(int faceCount)
 {
+    handleLogMessage("Extraction finished at: " + QDateTime::currentDateTime().toString());
     handleLogMessage("Extraction finished. Total faces extracted: " + QString::number(faceCount));
     ui->selectFileButton->setEnabled(true);
     ui->selectOutputDirButton->setEnabled(true);
     ui->extractFacesButton->setEnabled(true);
     ui->fpsComboBox->setEnabled(true);
     ui->stopExtractionButton->setEnabled(false);
+    ui->progressBar->setValue(0); // Reset the progress bar
     workerThread.quit();
 }
 

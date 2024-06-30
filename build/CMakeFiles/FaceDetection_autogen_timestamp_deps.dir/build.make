@@ -66,13 +66,13 @@ include CMakeFiles/FaceDetection_autogen_timestamp_deps.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/FaceDetection_autogen_timestamp_deps.dir/progress.make
 
-CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.6.0
 CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libopencv_hdf.so.4.6.0
 CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.6.0
 CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libopencv_flann.so.4.6.0
-CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/local/lib/libdlib.a
-CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.13
+CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.6.0
 CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libopencv_intensity_transform.so.4.6.0
+CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.13
+CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/local/lib/libdlib.a
 CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libopencv_ml.so.4.6.0
 CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libopencv_phase_unwrapping.so.4.6.0
 CMakeFiles/FaceDetection_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.6.0

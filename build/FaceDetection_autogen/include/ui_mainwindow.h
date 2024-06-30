@@ -12,14 +12,15 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSplitter>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,15 +29,18 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QVBoxLayout *verticalLayout;
+    QProgressBar *progressBar;
+    QTextEdit *logTextEdit;
+    QLabel *lastFaceLabel;
+    QSplitter *splitter;
     QPushButton *selectFileButton;
     QPushButton *selectOutputDirButton;
     QPushButton *extractFacesButton;
     QPushButton *stopExtractionButton;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
     QComboBox *fpsComboBox;
-    QProgressBar *progressBar;
-    QTextEdit *logTextEdit;
-    QLabel *lastFaceLabel;
+    QLabel *label;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -44,33 +48,130 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(389, 472);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
+        MainWindow->setSizePolicy(sizePolicy);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        verticalLayout = new QVBoxLayout(centralwidget);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        selectFileButton = new QPushButton(centralwidget);
+        progressBar = new QProgressBar(centralwidget);
+        progressBar->setObjectName(QString::fromUtf8("progressBar"));
+        progressBar->setGeometry(QRect(10, 230, 371, 25));
+        logTextEdit = new QTextEdit(centralwidget);
+        logTextEdit->setObjectName(QString::fromUtf8("logTextEdit"));
+        logTextEdit->setGeometry(QRect(10, 270, 371, 146));
+        QPalette palette;
+        QBrush brush(QColor(255, 255, 255, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        QBrush brush1(QColor(36, 31, 49, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush1);
+        QBrush brush2(QColor(54, 46, 73, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Light, brush2);
+        QBrush brush3(QColor(45, 38, 61, 255));
+        brush3.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Midlight, brush3);
+        QBrush brush4(QColor(18, 15, 24, 255));
+        brush4.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Dark, brush4);
+        QBrush brush5(QColor(24, 21, 33, 255));
+        brush5.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Mid, brush5);
+        QBrush brush6(QColor(38, 162, 105, 255));
+        brush6.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush6);
+        palette.setBrush(QPalette::Active, QPalette::BrightText, brush);
+        palette.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        QBrush brush7(QColor(0, 0, 0, 255));
+        brush7.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush7);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Shadow, brush7);
+        palette.setBrush(QPalette::Active, QPalette::AlternateBase, brush4);
+        QBrush brush8(QColor(255, 255, 220, 255));
+        brush8.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::ToolTipBase, brush8);
+        palette.setBrush(QPalette::Active, QPalette::ToolTipText, brush7);
+        QBrush brush9(QColor(38, 162, 105, 128));
+        brush9.setStyle(Qt::SolidPattern);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Active, QPalette::PlaceholderText, brush9);
+#endif
+        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Light, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::Midlight, brush3);
+        palette.setBrush(QPalette::Inactive, QPalette::Dark, brush4);
+        palette.setBrush(QPalette::Inactive, QPalette::Mid, brush5);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::BrightText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush7);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Shadow, brush7);
+        palette.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush4);
+        palette.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush8);
+        palette.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush7);
+        QBrush brush10(QColor(255, 255, 255, 128));
+        brush10.setStyle(Qt::SolidPattern);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush10);
+#endif
+        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Light, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::Midlight, brush3);
+        palette.setBrush(QPalette::Disabled, QPalette::Dark, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::Mid, brush5);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::BrightText, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Shadow, brush7);
+        palette.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
+        palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush7);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush10);
+#endif
+        logTextEdit->setPalette(palette);
+        logTextEdit->viewport()->setProperty("cursor", QVariant(QCursor(Qt::BlankCursor)));
+        logTextEdit->setCursorWidth(0);
+        lastFaceLabel = new QLabel(centralwidget);
+        lastFaceLabel->setObjectName(QString::fromUtf8("lastFaceLabel"));
+        lastFaceLabel->setGeometry(QRect(180, 10, 200, 200));
+        lastFaceLabel->setMinimumSize(QSize(200, 200));
+        lastFaceLabel->setFrameShape(QFrame::Box);
+        lastFaceLabel->setScaledContents(true);
+        lastFaceLabel->setAlignment(Qt::AlignCenter);
+        splitter = new QSplitter(centralwidget);
+        splitter->setObjectName(QString::fromUtf8("splitter"));
+        splitter->setGeometry(QRect(19, 9, 141, 127));
+        splitter->setOrientation(Qt::Vertical);
+        selectFileButton = new QPushButton(splitter);
         selectFileButton->setObjectName(QString::fromUtf8("selectFileButton"));
-
-        verticalLayout->addWidget(selectFileButton);
-
-        selectOutputDirButton = new QPushButton(centralwidget);
+        splitter->addWidget(selectFileButton);
+        selectOutputDirButton = new QPushButton(splitter);
         selectOutputDirButton->setObjectName(QString::fromUtf8("selectOutputDirButton"));
-
-        verticalLayout->addWidget(selectOutputDirButton);
-
-        extractFacesButton = new QPushButton(centralwidget);
+        splitter->addWidget(selectOutputDirButton);
+        extractFacesButton = new QPushButton(splitter);
         extractFacesButton->setObjectName(QString::fromUtf8("extractFacesButton"));
-
-        verticalLayout->addWidget(extractFacesButton);
-
-        stopExtractionButton = new QPushButton(centralwidget);
+        splitter->addWidget(extractFacesButton);
+        stopExtractionButton = new QPushButton(splitter);
         stopExtractionButton->setObjectName(QString::fromUtf8("stopExtractionButton"));
         stopExtractionButton->setEnabled(false);
-
-        verticalLayout->addWidget(stopExtractionButton);
-
-        fpsComboBox = new QComboBox(centralwidget);
+        splitter->addWidget(stopExtractionButton);
+        widget = new QWidget(splitter);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        fpsComboBox = new QComboBox(widget);
         fpsComboBox->addItem(QString());
         fpsComboBox->addItem(QString());
         fpsComboBox->addItem(QString());
@@ -88,31 +189,18 @@ public:
         fpsComboBox->addItem(QString());
         fpsComboBox->setObjectName(QString::fromUtf8("fpsComboBox"));
 
-        verticalLayout->addWidget(fpsComboBox);
+        horizontalLayout->addWidget(fpsComboBox);
 
-        progressBar = new QProgressBar(centralwidget);
-        progressBar->setObjectName(QString::fromUtf8("progressBar"));
+        label = new QLabel(widget);
+        label->setObjectName(QString::fromUtf8("label"));
 
-        verticalLayout->addWidget(progressBar);
+        horizontalLayout->addWidget(label);
 
-        logTextEdit = new QTextEdit(centralwidget);
-        logTextEdit->setObjectName(QString::fromUtf8("logTextEdit"));
-
-        verticalLayout->addWidget(logTextEdit);
-
-        lastFaceLabel = new QLabel(centralwidget);
-        lastFaceLabel->setObjectName(QString::fromUtf8("lastFaceLabel"));
-        lastFaceLabel->setMinimumSize(QSize(200, 200));
-        lastFaceLabel->setFrameShape(QFrame::Box);
-        lastFaceLabel->setScaledContents(true);
-        lastFaceLabel->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(lastFaceLabel);
-
+        splitter->addWidget(widget);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 389, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -147,6 +235,7 @@ public:
         fpsComboBox->setItemText(14, QCoreApplication::translate("MainWindow", "15", nullptr));
 
         fpsComboBox->setCurrentText(QCoreApplication::translate("MainWindow", "1", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "FPS Extracted ", nullptr));
     } // retranslateUi
 
 };

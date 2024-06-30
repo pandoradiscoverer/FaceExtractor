@@ -1302,6 +1302,12 @@ CMakeFiles/FaceDetection.dir/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
@@ -1315,6 +1321,8 @@ CMakeFiles/FaceDetection.dir/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextEdit \
@@ -1326,12 +1334,6 @@ CMakeFiles/FaceDetection.dir/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog \
@@ -1348,19 +1350,5 @@ CMakeFiles/FaceDetection.dir/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainterpath.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsScene \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsscene.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QImageReader \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qimagereader.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qimageiohandler.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qplugin.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qpointer.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonobject.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonvalue.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcborvalue.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcborcommon.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/quuid.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qfactoryinterface.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QDateTime \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h
