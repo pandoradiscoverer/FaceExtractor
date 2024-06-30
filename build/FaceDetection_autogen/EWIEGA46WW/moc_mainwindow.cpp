@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_FaceExtractionWorker_t {
-    QByteArrayData data[12];
-    char stringdata0[132];
+    QByteArrayData data[11];
+    char stringdata0[128];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,15 +41,14 @@ QT_MOC_LITERAL(5, 66, 9), // "faceCount"
 QT_MOC_LITERAL(6, 76, 10), // "logMessage"
 QT_MOC_LITERAL(7, 87, 7), // "message"
 QT_MOC_LITERAL(8, 95, 15), // "displayLastFace"
-QT_MOC_LITERAL(9, 111, 7), // "cv::Mat"
-QT_MOC_LITERAL(10, 119, 4), // "face"
-QT_MOC_LITERAL(11, 124, 7) // "process"
+QT_MOC_LITERAL(9, 111, 8), // "filePath"
+QT_MOC_LITERAL(10, 120, 7) // "process"
 
     },
     "FaceExtractionWorker\0progressUpdated\0"
     "\0progress\0extractionFinished\0faceCount\0"
     "logMessage\0message\0displayLastFace\0"
-    "cv::Mat\0face\0process"
+    "filePath\0process"
 };
 #undef QT_MOC_LITERAL
 
@@ -73,13 +72,13 @@ static const uint qt_meta_data_FaceExtractionWorker[] = {
        8,    1,   48,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      11,    0,   51,    2, 0x0a /* Public */,
+      10,    0,   51,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Float,    3,
     QMetaType::Void, QMetaType::Int,    5,
     QMetaType::Void, QMetaType::QString,    7,
-    QMetaType::Void, 0x80000000 | 9,   10,
+    QMetaType::Void, QMetaType::QString,    9,
 
  // slots: parameters
     QMetaType::Void,
@@ -96,7 +95,7 @@ void FaceExtractionWorker::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
         case 0: _t->progressUpdated((*reinterpret_cast< float(*)>(_a[1]))); break;
         case 1: _t->extractionFinished((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: _t->logMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 3: _t->displayLastFace((*reinterpret_cast< const cv::Mat(*)>(_a[1]))); break;
+        case 3: _t->displayLastFace((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 4: _t->process(); break;
         default: ;
         }
@@ -124,7 +123,7 @@ void FaceExtractionWorker::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
             }
         }
         {
-            using _t = void (FaceExtractionWorker::*)(const cv::Mat & );
+            using _t = void (FaceExtractionWorker::*)(const QString & );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FaceExtractionWorker::displayLastFace)) {
                 *result = 3;
                 return;
@@ -195,14 +194,14 @@ void FaceExtractionWorker::logMessage(const QString & _t1)
 }
 
 // SIGNAL 3
-void FaceExtractionWorker::displayLastFace(const cv::Mat & _t1)
+void FaceExtractionWorker::displayLastFace(const QString & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[17];
-    char stringdata0[302];
+    QByteArrayData data[16];
+    char stringdata0[298];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -226,8 +225,7 @@ QT_MOC_LITERAL(11, 232, 9), // "faceCount"
 QT_MOC_LITERAL(12, 242, 16), // "handleLogMessage"
 QT_MOC_LITERAL(13, 259, 7), // "message"
 QT_MOC_LITERAL(14, 267, 21), // "handleDisplayLastFace"
-QT_MOC_LITERAL(15, 289, 7), // "cv::Mat"
-QT_MOC_LITERAL(16, 297, 4) // "face"
+QT_MOC_LITERAL(15, 289, 8) // "filePath"
 
     },
     "MainWindow\0on_selectFileButton_clicked\0"
@@ -238,7 +236,7 @@ QT_MOC_LITERAL(16, 297, 4) // "face"
     "index\0handleProgressUpdated\0progress\0"
     "handleExtractionFinished\0faceCount\0"
     "handleLogMessage\0message\0handleDisplayLastFace\0"
-    "cv::Mat\0face"
+    "filePath"
 };
 #undef QT_MOC_LITERAL
 
@@ -275,7 +273,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::Float,    9,
     QMetaType::Void, QMetaType::Int,   11,
     QMetaType::Void, QMetaType::QString,   13,
-    QMetaType::Void, 0x80000000 | 15,   16,
+    QMetaType::Void, QMetaType::QString,   15,
 
        0        // eod
 };
@@ -294,7 +292,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->handleProgressUpdated((*reinterpret_cast< float(*)>(_a[1]))); break;
         case 6: _t->handleExtractionFinished((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 7: _t->handleLogMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 8: _t->handleDisplayLastFace((*reinterpret_cast< const cv::Mat(*)>(_a[1]))); break;
+        case 8: _t->handleDisplayLastFace((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     }

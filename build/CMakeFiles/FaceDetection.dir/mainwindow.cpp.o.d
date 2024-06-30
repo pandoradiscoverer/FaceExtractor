@@ -1347,4 +1347,20 @@ CMakeFiles/FaceDetection.dir/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitem.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainterpath.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsScene \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsscene.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsscene.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QImageReader \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qimagereader.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qimageiohandler.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qplugin.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qpointer.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonobject.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonvalue.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcborvalue.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcborcommon.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/quuid.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qfactoryinterface.h

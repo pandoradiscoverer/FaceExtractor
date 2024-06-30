@@ -26,7 +26,7 @@ signals:
     void progressUpdated(float progress);
     void extractionFinished(int faceCount);
     void logMessage(const QString &message);
-    void displayLastFace(const cv::Mat &face);
+    void displayLastFace(const QString &filePath);
 
 public slots:
     void process();
@@ -56,7 +56,7 @@ private slots:
     void handleProgressUpdated(float progress);
     void handleExtractionFinished(int faceCount);
     void handleLogMessage(const QString &message);
-    void handleDisplayLastFace(const cv::Mat &face);
+    void handleDisplayLastFace(const QString &filePath);
 
 private:
     Ui::MainWindow *ui;

@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
+#include <QImageReader>
 
 using namespace std;
 using namespace cv;
@@ -87,7 +88,8 @@ void FaceExtractionWorker::saveFace(const Mat& frame, const dlib::rectangle& fac
     Mat faceImg = frame(Rect(Point(face.left(), face.top()), Point(face.right(), face.bottom()))).clone();
     fs::path outputFile = fs::path(outputDir) / ("face_" + std::to_string(faceCount) + ".jpg");
     imwrite(outputFile.string(), faceImg);
-    emit displayLastFace(faceImg);
+    emit logMessage(QString::fromStdString("Saved face to " + outputFile.string()));
+    emit displayLastFace(QString::fromStdString(outputFile.string()));
 }
 
 MainWindow::MainWindow(QWidget *parent)
@@ -207,9 +209,12 @@ void MainWindow::handleLogMessage(const QString &message)
     ui->logTextEdit->append(message);
 }
 
-void MainWindow::handleDisplayLastFace(const cv::Mat &face)
+void MainWindow::handleDisplayLastFace(const QString &filePath)
 {
-    QImage qimg(face.data, face.cols, face.rows, face.step, QImage::Format_RGB888);
-    QPixmap pixmap = QPixmap::fromImage(qimg.rgbSwapped());
-    ui->lastFaceLabel->setPixmap(pixmap.scaled(ui->lastFaceLabel->size(), Qt::KeepAspectRatio));
+    QPixmap pixmap(filePath);
+    if (!pixmap.isNull()) {
+        ui->lastFaceLabel->setPixmap(pixmap.scaled(ui->lastFaceLabel->size(), Qt::KeepAspectRatio));
+    } else {
+        handleLogMessage("Failed to load image: " + filePath);
+    }
 }
