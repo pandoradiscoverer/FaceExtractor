@@ -1,0 +1,5 @@
+/home/simone/Progetti/FaceExtractor/build/CMakeFiles/FaceDetection.dir
+/home/simone/Progetti/FaceExtractor/build/CMakeFiles/edit_cache.dir
+/home/simone/Progetti/FaceExtractor/build/CMakeFiles/rebuild_cache.dir
+/home/simone/Progetti/FaceExtractor/build/CMakeFiles/FaceDetection_autogen_timestamp_deps.dir
+/home/simone/Progetti/FaceExtractor/build/CMakeFiles/FaceDetection_autogen.dir
