@@ -1,5 +1,3 @@
-Certainly. Here's the updated README in English, using wxWidgets instead of Qt5:
-
 ```markdown
 # Face Detection and Extraction
 
