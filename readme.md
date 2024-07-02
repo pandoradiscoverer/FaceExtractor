@@ -1,4 +1,3 @@
-```markdown
 # Face Detection and Extraction
 
 This project is a face detection and extraction tool built using OpenCV, dlib, and wxWidgets. It processes both images and videos, detects faces, and saves the extracted faces to a specified directory. The application provides a user-friendly graphical interface (GUI) built with wxWidgets.
@@ -48,11 +47,11 @@ This project is a face detection and extraction tool built using OpenCV, dlib, a
    - Add the vcpkg directory to your system PATH.
 
 4. **Install Dependencies using vcpkg**
-   
+   '''
    vcpkg install opencv:x64-windows
    vcpkg install dlib:x64-windows
    vcpkg install wxwidgets:x64-windows
-
+   '''
 
 5. **Integrate vcpkg with Visual Studio**
    
