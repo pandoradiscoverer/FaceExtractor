@@ -1,63 +1,65 @@
+Certainly. Here's the updated README in English, using wxWidgets instead of Qt5:
+
+```markdown
 # Face Detection and Extraction
 
-This project is a face detection and extraction tool built using OpenCV and dlib. It can process both images and videos, detect faces, and save the extracted faces to a specified directory. The application provides a graphical user interface (GUI) built with Qt.
+This project is a face detection and extraction tool built using OpenCV, dlib, and wxWidgets. It processes both images and videos, detects faces, and saves the extracted faces to a specified directory. The application provides a user-friendly graphical interface (GUI) built with wxWidgets.
 
 ## Features
 
 - **Face Detection**: Detect faces in images and videos using dlib's frontal face detector.
 - **Face Extraction**: Extract and save detected faces as individual image files.
-- **Progress Logging**: Display progress of the face extraction process.
-- **Threaded Processing**: Utilize threading to ensure the GUI remains responsive during face detection and extraction.
+- **Progress Logging**: Real-time display of the face extraction process.
+- **Threaded Processing**: Utilize multi-threading to ensure GUI responsiveness during face detection and extraction.
+- **Cross-platform Support**: Works on Windows and Linux (Ubuntu).
 
 ## Requirements
 
 ### Windows
 
-- **Visual Studio**: Community or higher version with C++ development tools.
-- **CMake**: Version 3.10 or higher.
-- **Qt**: Version 5 or higher.
-- **OpenCV**: Version 4.6.0 or higher.
-- **dlib**: Latest version.
+- **Visual Studio**: 2019 or later with C++ development tools.
+- **CMake**: Version 3.14 or higher.
+- **vcpkg**: Package manager for C++ libraries.
 
 ### Linux (Ubuntu)
 
 - **g++**: Version 7.5 or higher.
-- **CMake**: Version 3.10 or higher.
-- **Qt**: Version 5 or higher.
-- **OpenCV**: Version 4.6.0 or higher.
-- **dlib**: Latest version.
+- **CMake**: Version 3.14 or higher.
 
 ## Installation
 
 ### Windows
 
 1. **Install Visual Studio**
-   - Download and install Visual Studio from [Visual Studio website](https://visualstudio.microsoft.com/).
+   - Download and install Visual Studio from the [Visual Studio website](https://visualstudio.microsoft.com/).
    - During installation, select "Desktop development with C++" and "CMake tools for Windows".
 
 2. **Install CMake**
-   - Download and install CMake from [CMake website](https://cmake.org/download/).
+   - Download and install CMake from the [CMake website](https://cmake.org/download/).
    - Add CMake to the system PATH during installation.
 
-3. **Install Qt**
-   - Download and install Qt from [Qt website](https://www.qt.io/download).
-
-4. **Install OpenCV**
-   - Download OpenCV from [OpenCV releases](https://opencv.org/releases/) and extract it to `C:\opencv`.
-   - Add `C:\opencv\build\x64\vc14\bin` to the system PATH.
-   - Set `OpenCV_DIR` environment variable to `C:\opencv\build\x64\vc14\lib`.
-
-5. **Install dlib**
-   - Download dlib from [dlib GitHub](https://github.com/davisking/dlib).
-   - Open `Developer Command Prompt for VS`.
-   - Navigate to the dlib directory and build it using CMake:
-     ```bash
-     mkdir build
-     cd build
-     cmake .. -G "Visual Studio 16 2019" -A x64
-     cmake --build . --config Release
+3. **Install vcpkg**
+   - Clone the vcpkg repository:
      ```
-   - Set `dlib_DIR` environment variable to the dlib build directory.
+     git clone https://github.com/Microsoft/vcpkg.git
+     ```
+   - Run the bootstrap script:
+     ```
+     .\vcpkg\bootstrap-vcpkg.bat
+     ```
+   - Add the vcpkg directory to your system PATH.
+
+4. **Install Dependencies using vcpkg**
+   ```
+   vcpkg install opencv:x64-windows
+   vcpkg install dlib:x64-windows
+   vcpkg install wxwidgets:x64-windows
+   ```
+
+5. **Integrate vcpkg with Visual Studio**
+   ```
+   vcpkg integrate install
+   ```
 
 ### Linux (Ubuntu)
 
@@ -66,20 +68,15 @@ This project is a face detection and extraction tool built using OpenCV and dlib
    sudo apt update
    sudo apt install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
    sudo apt install libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev
-   sudo apt install qt5-default
-   ```
-
-2. **Install OpenCV**
-   ```bash
    sudo apt install libopencv-dev
+   sudo apt install libwxgtk3.0-gtk3-dev
    ```
 
-3. **Install dlib**
+2. **Install dlib**
    ```bash
    git clone https://github.com/davisking/dlib.git
    cd dlib
-   mkdir build
-   cd build
+   mkdir build && cd build
    cmake ..
    cmake --build .
    sudo make install
@@ -95,7 +92,7 @@ This project is a face detection and extraction tool built using OpenCV and dlib
    - Choose the project directory.
 
 2. **Configure CMake**
-   - Edit `CMakeSettings.json` to configure OpenCV and dlib paths.
+   - Edit `CMakeSettings.json` to use vcpkg:
    ```json
    {
      "configurations": [
@@ -111,14 +108,9 @@ This project is a face detection and extraction tool built using OpenCV and dlib
          "ctestCommandArgs": "",
          "variables": [
            {
-             "name": "OpenCV_DIR",
-             "value": "C:/opencv/build",
-             "type": "PATH"
-           },
-           {
-             "name": "dlib_DIR",
-             "value": "C:/path/to/dlib/build",
-             "type": "PATH"
+             "name": "CMAKE_TOOLCHAIN_FILE",
+             "value": "${env.VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+             "type": "STRING"
            }
          ]
        }
@@ -140,8 +132,7 @@ This project is a face detection and extraction tool built using OpenCV and dlib
 
 2. **Build the Project**
    ```bash
-   mkdir build
-   cd build
+   mkdir build && cd build
    cmake ..
    make
    ```
@@ -153,10 +144,10 @@ This project is a face detection and extraction tool built using OpenCV and dlib
 
 ## Usage
 
-1. **Select Image/Video**: Click the "Select Image/Video" button and choose the file to process.
-2. **Select Output Directory**: Click the "Select Output Directory" button and choose where to save the extracted faces.
-3. **Extract Faces**: Click the "Extract Faces" button to start the extraction process.
-4. **Stop Extraction**: Click the "Stop Extraction" button to halt the process at any time.
+1. **Select Image/Video**: Click "Select Image/Video" and choose the file to process.
+2. **Select Output Directory**: Click "Select Output Directory" and choose where to save the extracted faces.
+3. **Extract Faces**: Click "Extract Faces" to start the extraction process.
+4. **Stop Extraction**: Click "Stop Extraction" to halt the process at any time.
 5. **View Log and Progress**: Monitor the extraction progress and log messages in the provided text area.
 
 ## License
@@ -165,7 +156,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- **dlib**: [dlib library](http://dlib.net/)
-- **OpenCV**: [OpenCV library](https://opencv.org/)
-- **Qt**: [Qt framework](https://www.qt.io/)
+- [dlib library](http://dlib.net/)
+- [OpenCV library](https://opencv.org/)
+- [wxWidgets framework](https://www.wxwidgets.org/)
+- [vcpkg package manager](https://github.com/microsoft/vcpkg)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 ```
+
