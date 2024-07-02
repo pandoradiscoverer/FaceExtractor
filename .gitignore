@@ -1,0 +1,16 @@
+# Ignora la cartella build
+build/
+
+# Ignora altri file di build
+*.o
+*.obj
+*.dll
+*.exe
+*.so
+*.dylib
+
+# Ignora i file di configurazione di CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
