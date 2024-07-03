@@ -14,16 +14,16 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 set(SOURCES
-    main.cpp
-    mainwindow.cpp
+    src/main.cpp
+    src/mainwindow.cpp
 )
 
 set(HEADERS
-    mainwindow.h
+    src/mainwindow.h
 )
 
 set(UIS
-    mainwindow.ui
+    src/mainwindow.ui
 )
 
 add_executable(FaceDetection ${SOURCES} ${HEADERS} ${UIS})
