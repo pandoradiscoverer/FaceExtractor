@@ -1,0 +1,7 @@
+[requires]
+opencv/4.5.2
+dlib/19.22
+qt/5.15.2
+
+[generators]
+cmake
